@@ -52,7 +52,7 @@ public class MatriceTest {
 	public void organizeAuteurs() {
 		Calculs c1 = new Calculs();
 		for(int i=0; i<listeAuteurs.length; i++) {
-			System.out.println("\n************* ItÃ©ration " + i + "*************");
+			System.out.println("\n************* Itération " + i + "*************");
 			for(int j=0; j<listeAuteurs.length; j++) {
 				if(i==j) {
 					continue;
@@ -62,11 +62,19 @@ public class MatriceTest {
 					double force = c1.force(listeAuteurs[i], listeAuteurs[j], matrice);
 					listeAuteurs[j].setA(listeAuteurs[j].getA() + force);
 					listeAuteurs[j].setB(listeAuteurs[j].getB() + force);
-					listeAuteurs[j].setC(listeAuteurs[j].getC() + force);
-					System.out.println("Nouvelles coodronnÃ©es de " + listeAuteurs[j].getNom() + " sont : " + "(" + listeAuteurs[j].getA() + ", " + listeAuteurs[j].getB() + ", " + listeAuteurs[j].getC() + ")");
+					listeAuteurs[j].setC(listeAuteurs[j].getC() + (int)force);
+					System.out.println("Nouvelles coodronnées de " + listeAuteurs[j].getNom() + " sont : " + "(" + listeAuteurs[j].getA() + ", " + listeAuteurs[j].getB() + ", " + listeAuteurs[j].getC() + ")");
 				}
-				
-				
+			}
+		}
+	}
+	
+	public void aplatissement() {
+		System.out.println("\n------------------------Aplatissement------------------------");
+		for(int i=0; i<listeAuteurs.length; i++) {
+			while(listeAuteurs[i].getC()!=0) {
+				listeAuteurs[i].setC((int)(listeAuteurs[i].getC()*0.8));
+				organizeAuteurs();
 			}
 		}
 	}

@@ -11,6 +11,7 @@ public class Main {
 	      test.showMatrice();
 	      test.showAuteurs();
 	      test.organizeAuteurs();
+	      test.aplatissement();
 	      
 	}
 

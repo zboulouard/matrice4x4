@@ -20,15 +20,24 @@ public class Calculs {
 	}
 	
 	public double force(Auteur au1, Auteur au2, int[][] matrice) {
-		
-		double repulsion = -(distanceEuclidienne(au1, au2)/dist0);
+		double repulsion = -Math.pow(dist0/distanceEuclidienne(au1, au2), 2);
+		//double repulsion = -Math.pow(dist0/distanceEuclidienne(au1, au2), 1);
 		double volonte = matrice[au1.getIndex()][au2.getIndex()]/au1.getPoids();
 		double attractivite = au2.getPoids()/(au1.getPoids()+au2.getPoids());
 		double distRel = distanceEuclidienne(au1, au2)/dist0 - 1;
-		
 		double force = repulsion + volonte*attractivite*(distRel + Math.pow(distRel, 3));
-		
 		return force;
+	}
+	
+	public void aplatissement(Auteur[] listeAuteurs) {
+		
+		for(int i=0; i<listeAuteurs.length; i++) {
+			while(listeAuteurs[i].getC()!=0) {
+				double oldC = listeAuteurs[i].getC();
+				double newC = oldC*(1-1/10);
+				listeAuteurs[i].setC((int)newC);
+			}
+		}
 		
 	}
 	

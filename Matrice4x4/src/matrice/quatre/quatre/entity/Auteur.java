@@ -8,7 +8,7 @@ public class Auteur {
 	private int poids;
 	private double a;
 	private double b;
-	private double c;
+	private int c;
 	private int index;
 	public Auteur() {
 		super();
@@ -34,8 +34,8 @@ public class Auteur {
 		Random randomno = new Random();  
 		this.a = 100 * randomno.nextDouble();
 		this.b = 100 * randomno.nextDouble();
-		this.c = 100 * randomno.nextDouble();
-		System.out.println("CoodronnÃ©es de " + this.getNom() + " sont : " + "(" + this.getA() + ", " + this.getB() + ", " + this.getC() + ")");
+		this.c = (int) (100 * randomno.nextDouble());
+		System.out.println("Coodronnées de " + this.getNom() + " sont : " + "(" + this.getA() + ", " + this.getB() + ", " + this.getC() + ")");
 	}
 	public String getNom() {
 		return nom;
@@ -61,10 +61,10 @@ public class Auteur {
 	public void setB(double b) {
 		this.b = b;
 	}
-	public double getC() {
+	public int getC() {
 		return c;
 	}
-	public void setC(double c) {
+	public void setC(int c) {
 		this.c = c;
 	}
 	public int getIndex() {
